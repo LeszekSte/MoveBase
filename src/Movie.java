@@ -6,6 +6,8 @@ public class Movie {
     private String description;
     private int rating;
 
+    public  Movie(){}
+
     public Movie(String name, String director, int year, String type, String description, int rating) {
         this.name = name;
         this.director = director;
@@ -36,7 +38,10 @@ public class Movie {
     }
 
     public void setYear(int year) {
-        this.year = year;
+      if (year<1895 ){
+          year = 0;
+      }
+       this.year = year;
     }
 
     public String getType() {
@@ -56,6 +61,12 @@ public class Movie {
     }
 
     public int getRating() {
+        if (rating<1 ||  rating> 10 ){
+            rating = 5;
+            System.out.println("Ocena filmu musi byś pomiędzy 1-10.\nW przypadku błędnej oceny wpisuję ocenę - 5");
+        }
+
+
         return rating;
     }
 

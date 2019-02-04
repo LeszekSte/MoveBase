@@ -7,6 +7,7 @@ public class SerialFilm {
     private String description;
     private int rating;
 
+    public  SerialFilm (){}
     public SerialFilm(String name, int numberOfSeasons, int numberOfEpisodes, String filmProducer, String type, String description, int rating) {
         this.name = name;
         this.numberOfSeasons = numberOfSeasons;
@@ -30,6 +31,10 @@ public class SerialFilm {
     }
 
     public void setNumberOfSeasons(int numberOfSeasons) {
+       if (numberOfSeasons<1){
+           numberOfSeasons = 1;
+           System.out.println("Ilość sezonów musi wynosić co najmniej 1");
+       }
         this.numberOfSeasons = numberOfSeasons;
     }
 
@@ -38,6 +43,10 @@ public class SerialFilm {
     }
 
     public void setNumberOfEpisodes(int numberOfEpisodes) {
+        if (numberOfSeasons<2){
+            numberOfSeasons = 2;
+            System.out.println("Ilość odcinków musi być większa od 1");
+        }
         this.numberOfEpisodes = numberOfEpisodes;
     }
 
@@ -70,6 +79,12 @@ public class SerialFilm {
     }
 
     public void setRating(int rating) {
+        if (rating<1 ||  rating> 10 ){
+            rating = 5;
+            System.out.println("Ocena serialu musi byś pomiędzy 1-10.\nW przypadku błednej oceny wpisuję ocenę -5    ");
+        }
+
+
         this.rating = rating;
     }
 
